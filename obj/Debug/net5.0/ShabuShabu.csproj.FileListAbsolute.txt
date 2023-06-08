@@ -1,0 +1,7 @@
+C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.csproj.AssemblyReference.cache
+C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.AssemblyInfoInputs.cache
+C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.AssemblyInfo.cs
+C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.csproj.CoreCompileInputs.cache
+C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.MvcApplicationPartsAssemblyInfo.cache
