@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ShabuShabu.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace ShabuShabu
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddTransient<IBrothRepository, BrothRepository>();
+			services.AddTransient<IDrinkRepository, DrinkRepository>();
 
 			services.AddControllers();
 			services.AddSwaggerGen(c =>

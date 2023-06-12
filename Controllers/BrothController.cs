@@ -8,7 +8,6 @@ using System.Security.Claims;
 namespace ShabuShabu.Controllers
 {
 	[Route("api/[controller]")]
-	[Authorize]
 	[ApiController]
 	public class BrothController : ControllerBase
 	{
@@ -46,7 +45,7 @@ namespace ShabuShabu.Controllers
 
 		// ...::: PUTS :::...
 		[HttpPut("broth/{id}")]
-		public IActionResult UpdateFood(Broth broth, int id)
+		public IActionResult UpdateBroth(Broth broth, int id)
 		{
 			if (id != broth.Id)
 			{
