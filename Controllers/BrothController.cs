@@ -34,6 +34,21 @@ namespace ShabuShabu.Controllers
 			}
 		}
 
+		[HttpGet("{id}")]
+		public IActionResult GetBroth(int id)
+		{
+			var brothResult = _brothRepository.GetBrothById(id);
+			
+			if (brothResult != null)
+			{
+				return Ok(brothResult);
+			}
+			else
+			{
+				return Ok(new { data = (object)null });
+			}
+		}
+
 		// ...::: POSTS :::...
 		[HttpPost("addBroth")]
 		public IActionResult AddBroth(Broth broth)

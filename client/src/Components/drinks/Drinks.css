@@ -1,0 +1,7 @@
+
+
+.drinkParent {
+    background-color: red;
+    max-height: 1000px;
+    overflow: auto;
+}

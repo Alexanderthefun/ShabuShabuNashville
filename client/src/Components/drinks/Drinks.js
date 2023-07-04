@@ -1,0 +1,226 @@
+import React from "react";
+import Card from './DrinkCard';
+import { useEffect, useState } from "react";
+import { getAllDrinks, getDrinkById } from "../../Modules/DrinkManager";
+import { ExpandableMenu } from "../ExpandableItems/ExpandableMenu.js";
+import './Drinks.css'
+
+export const Drinks = () => {
+    const [drinks, setDrinks] = useState([]);
+    const [nonAlcohol, setNonAlcohol] = useState([]);
+    const [alcoholDrinks, setAlcoholDrinks] = useState([]);
+    const [sodas, setSodas] = useState([]);
+    const [hotTeas, setHotTeas] = useState([]);
+    const [japaneseSodas, setJapaneseSodas] = useState([]);
+    const [ades, setAdes] = useState([]);
+    const [cheeseTeas, setCheeseTeas] = useState([]);
+    const [milkTeas, setMilkTeas] = useState([]);
+    const [lattes, setLattes] = useState([]);
+    const [smoothies, setSmoothies] = useState([]);
+    const [fruitTeas, setFruitTeas] = useState([]);
+    const [whiskeys, setWhiskeys] = useState([]);
+    const [sojus, setSojus] = useState([]);
+    const [cocktails, setCocktails] = useState([]);
+    const [wines, setWines] = useState([]);
+    const [sakes, setSakes] = useState([]);
+    const [beers, setBeers] = useState([]);
+    const [expandedMenu, setExpandedMenu] = useState(null);
+
+
+    useEffect(() => {
+        getAllDrinks().then(data => {
+            console.log(data);
+            if (data !== null) {
+                setDrinks(data);
+            } else {
+                console.log('Somethings wrong yo.')
+            }
+        })
+    }, []);
+
+
+    useEffect(() => {
+        const booze = [];
+        const notBooze = [];
+        for (const drink of drinks) {
+            if (drink.hasAlcohol) {
+                booze.push(drink)
+            } else {
+                notBooze.push(drink)
+            }
+        }
+        setAlcoholDrinks(booze);
+        setNonAlcohol(notBooze);
+    }, [drinks])
+
+    useEffect(() => {
+        const theSodas = [];
+        const theHotTeas = [];
+        const theJapaneseSodas = [];
+        const theAdes = [];
+        const theCheeseTeas = [];
+        const theMilkTeas = [];
+        const theLattes = [];
+        const theSmoothies = [];
+        const theFruitTeas = [];
+        if (nonAlcohol) {
+            for (const drink of nonAlcohol) {
+                if (drink.type == 'Soda') {
+                    theSodas.push(drink);
+                } else if (drink.type == 'Hot Tea') {
+                    theHotTeas.push(drink);
+                } else if (drink.type == 'Japanese Soda') {
+                    theJapaneseSodas.push(drink);
+                } else if (drink.type == 'Ade') {
+                    theAdes.push(drink);
+                } else if (drink.type == 'Cheese Tea') {
+                    theCheeseTeas.push(drink);
+                } else if (drink.type == 'Milk Tea') {
+                    theMilkTeas.push(drink);
+                } else if (drink.type == 'Latte') {
+                    theLattes.push(drink);
+                } else if (drink.type == 'Smoothie') {
+                    theSmoothies.push(drink);
+                } else {
+                    theFruitTeas.push(drink);
+                }
+            }
+            setSodas(theSodas);
+            setHotTeas(theHotTeas);
+            setJapaneseSodas(theJapaneseSodas);
+            setAdes(theAdes);
+            setCheeseTeas(theCheeseTeas);
+            setMilkTeas(theMilkTeas);
+            setLattes(theLattes);
+            setSmoothies(theSmoothies);
+            setFruitTeas(theFruitTeas);
+        }
+    }, [nonAlcohol])
+
+    useEffect(() => {
+        const theWhiskey = [];
+        const theSojus = [];
+        const theCocktails = [];
+        const theWines = [];
+        const theSakes = [];
+        const theBeers = [];
+
+        if (alcoholDrinks) {
+            for (const drink of alcoholDrinks) {
+                if (drink.type == 'Whiskey') {
+                    theWhiskey.push(drink);
+                } else if (drink.type == 'Soju') {
+                    theSojus.push(drink);
+                } else if (drink.type == 'Cocktail') {
+                    theCocktails.push(drink)
+                } else if (drink.type == 'Wine') {
+                    theWines.push(drink);
+                } else if (drink.type == 'Sake') {
+                    theSakes.push(drink);
+                } else {
+                    theBeers.push(drink);
+                }
+            }
+        }
+        setWhiskeys(theWhiskey);
+        setSojus(theSojus);
+        setCocktails(theCocktails);
+        setWines(theWines);
+        setSakes(theSakes);
+        setBeers(theBeers);
+    }, [alcoholDrinks])
+
+    const handleMenuClick = (category) => {
+        if (expandedMenu === category) {
+            setExpandedMenu(null);
+        } else {
+            setExpandedMenu(category);
+        }
+    };
+
+
+
+    return (
+        <div className="drinkParent">
+            <div className="nonAlcohol">
+                <ExpandableMenu
+                    category="Sodas"
+                    drinks={sodas}
+                    isExpanded={expandedMenu === 'Sodas'}
+                    onClick={() => handleMenuClick('Sodas')} />
+                <ExpandableMenu
+                    category="Hot Teas"
+                    drinks={hotTeas}
+                    isExpanded={expandedMenu === 'Hot Teas'}
+                    onClick={() => handleMenuClick('Hot Teas')} />
+                <ExpandableMenu
+                    category="Japanese Sodas"
+                    drinks={japaneseSodas}
+                    isExpanded={expandedMenu === 'Japanese Sodas'}
+                    onClick={() => handleMenuClick('Japanese Sodas')} />
+                <ExpandableMenu
+                    category="Ades"
+                    drinks={ades}
+                    isExpanded={expandedMenu === 'Ades'}
+                    onClick={() => handleMenuClick('Ades')} />
+                <ExpandableMenu
+                    category="Cheese Teas"
+                    drinks={cheeseTeas}
+                    isExpanded={expandedMenu === 'Cheese Teas'}
+                    onClick={() => handleMenuClick('Cheese Teas')} />
+                <ExpandableMenu
+                    category="Milk Teas"
+                    drinks={milkTeas}
+                    isExpanded={expandedMenu === 'Milk Teas'}
+                    onClick={() => handleMenuClick('Milk Teas')} />
+                <ExpandableMenu
+                    category="Lattes"
+                    drinks={lattes}
+                    isExpanded={expandedMenu === 'Lattes'}
+                    onClick={() => handleMenuClick('Lattes')} />
+                <ExpandableMenu
+                    category="Smoothies"
+                    drinks={smoothies}
+                    isExpanded={expandedMenu === 'Smoothies'}
+                    onClick={() => handleMenuClick('Smoothies')} />
+                <ExpandableMenu
+                    category="Fruit Teas"
+                    drinks={fruitTeas}
+                    isExpanded={expandedMenu === 'Fruit Teas'}
+                    onClick={() => handleMenuClick('Fruit Teas')} />
+            </div>
+            <div className="booze">
+                <ExpandableMenu
+                    category="Whiskeys"
+                    drinks={whiskeys}
+                    isExpanded={expandedMenu === 'Whiskeys'}
+                    onClick={() => handleMenuClick('Whiskeys')} />
+                <ExpandableMenu
+                    category="Sojus"
+                    drinks={sojus}
+                    isExpanded={expandedMenu === 'Sojus'}
+                    onClick={() => handleMenuClick('Sojus')} />
+                <ExpandableMenu
+                    category="Cocktails"
+                    drinks={cocktails}
+                    isExpanded={expandedMenu === 'Cocktails'}
+                    onClick={() => handleMenuClick('Cocktails')} />
+                <ExpandableMenu
+                    category="Wines"
+                    drinks={wines}
+                    isExpanded={expandedMenu === 'Wines'}
+                    onClick={() => handleMenuClick('Wines')} />
+                <ExpandableMenu
+                    category="Sakes"
+                    drinks={sakes}
+                    isExpanded={expandedMenu === 'Sakes'}
+                    onClick={() => handleMenuClick('Sakes')} />
+                <ExpandableMenu
+                    category="Beers"
+                    drinks={beers}
+                    isExpanded={expandedMenu === 'Beers'}
+                    onClick={() => handleMenuClick('Beers')} />
+            </div>
+        </div>
+    );
+}

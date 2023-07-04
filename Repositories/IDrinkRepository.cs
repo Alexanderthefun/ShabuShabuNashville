@@ -8,6 +8,7 @@ namespace ShabuShabu.Repositories
 		Drink AddDrink(Drink drink);
 		void DeleteDrink(int id);
 		List<Drink> GetAllDrinks();
+		Drink GetDrinkById(int id);
 		void UpdateDrink(Drink drink);
 	}
 }
