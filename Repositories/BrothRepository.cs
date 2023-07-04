@@ -42,6 +42,39 @@ namespace ShabuShabu.Repositories
 			}
 		}
 
+		public Broth GetBrothById(int id)
+		{
+			using (var conn = Connection)
+			{
+				conn.Open();
+				using (var cmd = conn.CreateCommand())
+				{
+					cmd.CommandText = @"SELECT Id, Name, Description, CanBeVegetarian, CanBeGlutenFree, Spicy
+										FROM Broths
+										WHERE Id = @id";
+					DbUtils.AddParameter(cmd, "@Id", id);
+
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						Broth broth = null;
+						if (reader.Read())
+						{
+							broth = new Broth()
+							{
+								Id = DbUtils.GetInt(reader, "id"),
+								Name = DbUtils.GetString(reader, "Name"),
+								Description = DbUtils.GetString(reader, "Description"),
+								CanBeVegetarian = reader.GetBoolean(reader.GetOrdinal("CanBeVegetarian")),
+								CanBeGlutenFree = reader.GetBoolean(reader.GetOrdinal("CanBeGlutenFree")),
+								Spicy = reader.GetBoolean(reader.GetOrdinal("Spicy"))
+							};
+						}
+						return broth;
+					}
+				}
+			}
+		}
+
 		public Broth AddBroth(Broth broth)
 		{
 			using (var conn = Connection)

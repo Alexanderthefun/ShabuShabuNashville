@@ -68,3 +68,6 @@ C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\refint\ShabuShabu.dll
 C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.pdb
 C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ShabuShabu.genruntimeconfig.cache
 C:\Users\AFdev\workspace\ShabuShabu\obj\Debug\net5.0\ref\ShabuShabu.dll
+C:\Users\AFdev\workspace\ShabuShabu\bin\Debug\net5.0\client\package-lock.json
+C:\Users\AFdev\workspace\ShabuShabu\bin\Debug\net5.0\client\package.json
+C:\Users\AFdev\workspace\ShabuShabu\bin\Debug\net5.0\client\public\manifest.json

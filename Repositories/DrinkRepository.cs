@@ -42,6 +42,39 @@ namespace ShabuShabu.Repositories
 			}
 		}
 
+		public Drink GetDrinkById(int id)
+		{
+			using (var conn = Connection)
+			{
+				conn.Open();
+				using (var cmd = conn.CreateCommand())
+				{
+					cmd.CommandText = @"SELECT Id, Name, HasDairy, Type, HasAlcohol, Price
+										FROM Drinks
+										WHERE Id = @id";
+					DbUtils.AddParameter(cmd, "@Id", id);
+
+					using (SqlDataReader reader = cmd.ExecuteReader())
+					{
+						Drink broth = null;
+						if (reader.Read())
+						{
+							broth = new Drink()
+							{
+								Id = DbUtils.GetInt(reader, "id"),
+								Name = DbUtils.GetString(reader, "Name"),
+								HasDairy = reader.GetBoolean(reader.GetOrdinal("HasDairy")),
+								Type = DbUtils.GetString(reader, "Type"),
+								HasAlcohol = reader.GetBoolean(reader.GetOrdinal("HasAlcohol")),
+								Price = reader.GetDouble(reader.GetOrdinal("Price"))
+							};
+						}
+						return broth;
+					}
+				}
+			}
+		}
+
 		public Drink AddDrink(Drink drink)
 		{
 			using (var conn = Connection)

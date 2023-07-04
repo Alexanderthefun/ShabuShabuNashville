@@ -4,7 +4,7 @@ using ShabuShabu.Repositories;
 
 namespace ShabuShabu.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/drinks")]
 	[ApiController]
 	public class DrinkController : ControllerBase
 	{
@@ -15,12 +15,17 @@ namespace ShabuShabu.Controllers
 			_drinkRepository = drinkRepository;
 		}
 
-		[HttpGet("drinks")]
+		[HttpGet]
 		public IActionResult GetAllDrinks()
 		{
-			var drinkResult = _drinkRepository.GetAllDrinks();
+			return Ok(_drinkRepository.GetAllDrinks());
+		}
 
-			if (drinkResult != null)
+		[HttpGet("{id}")]
+		public IActionResult GetDrinkById(int id)
+		{
+			var drinkResult = _drinkRepository.GetDrinkById(id);
+			if(drinkResult != null)
 			{
 				return Ok(drinkResult);
 			}
