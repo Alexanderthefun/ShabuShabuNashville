@@ -1,9 +1,9 @@
 // ExpandableMenu.js
 import React, { useState, useEffect, useRef } from 'react';
-import './ExpandableMenu.css';
-import Card from '../drinks/DrinkCard';
+import './ExpandableBroth.css';
+import Card from '../broths/BrothCard';
 
-export const ExpandableMenu = ({ category, drinks, isExpanded, onClick }) => {
+export const ExpandableMenu = ({ category, broths, isExpanded, onClick }) => {
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -16,12 +16,16 @@ export const ExpandableMenu = ({ category, drinks, isExpanded, onClick }) => {
     <div className='container'>
       <button className='categoryButton' onClick={onClick}>{category}</button>
       <div className={`expandable-menu ${isExpanded ? 'expanded' : ''}`}>
-        {drinks.map((drink) => (
-          <Card key={drink.id} name={drink.name} price={drink.price} />
+        {drinks.map((broth) => (
+          <Card key={broth.id} 
+                name={broth.name} 
+                description={broth.description}
+                spicy={broth.spicy}
+                canBeGlutenFree={broth.canBeGlutenFree}
+                canBeVegetarian={broth.canBeVegetarian}  />
         ))}
       </div>
     </div>
   );
 };
 
-// export default ExpandableMenu;

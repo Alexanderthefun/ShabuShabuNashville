@@ -1,6 +1,6 @@
 
 
-const _brothUrl = "/api/broth"
+const _brothUrl = "/api/broths"
 
 export const getBrothById = (id) => {
     return fetch(`${_brothUrl}/${id}`, {

@@ -1,0 +1,55 @@
+
+.card {
+    background-color: rgb(237, 210, 173);
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 95vw;
+    max-width: 350px;
+    margin: 1rem;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-name {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0;
+    padding: 2px;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .card-description {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .card-spicy {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .card-gluten {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .card-vegetarian {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
