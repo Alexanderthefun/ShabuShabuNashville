@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace ShabuShabu.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/broths")]
 	[ApiController]
 	public class BrothController : ControllerBase
 	{
@@ -19,19 +19,10 @@ namespace ShabuShabu.Controllers
 		}
 
 		// ...::: GETS :::...
-		[HttpGet("broths")]
+		[HttpGet]
 		public IActionResult GetBroths()
 		{
-			var brothResult = _brothRepository.GetAllBroths();
-
-			if (brothResult != null)
-			{
-				return Ok(brothResult);
-			}
-			else
-			{
-				return Ok(new { data = (object)null });
-			}
+			return Ok(_brothRepository.GetAllBroths());
 		}
 
 		[HttpGet("{id}")]

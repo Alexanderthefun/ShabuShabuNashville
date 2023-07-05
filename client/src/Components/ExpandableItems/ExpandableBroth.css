@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .expandable-menu {
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      max-height: 0;
+    }
+    
+    .expandable-menu.expanded {
+      overflow-y: auto;
+      max-height: 500px; 
+      background-color: rgb(255, 0, 0);
+    }
+  
+    .categoryButton {
+      height: 50px;
+      width: 350px;
+      border: 2px solid black;
+      margin-top: 4px;
+    }

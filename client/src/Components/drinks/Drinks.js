@@ -2,7 +2,7 @@ import React from "react";
 import Card from './DrinkCard';
 import { useEffect, useState } from "react";
 import { getAllDrinks, getDrinkById } from "../../Modules/DrinkManager";
-import { ExpandableMenu } from "../ExpandableItems/ExpandableMenu.js";
+import { ExpandableMenu } from "../ExpandableItems/ExpandableDrink.js";
 import './Drinks.css'
 
 export const Drinks = () => {
@@ -143,6 +143,7 @@ export const Drinks = () => {
     return (
         <div className="drinkParent">
             <div className="nonAlcohol">
+                <h1 className="drinkHeader">FAMILY DRINKS</h1>
                 <ExpandableMenu
                     category="Sodas"
                     drinks={sodas}
@@ -190,6 +191,7 @@ export const Drinks = () => {
                     onClick={() => handleMenuClick('Fruit Teas')} />
             </div>
             <div className="booze">
+                <h1 className="drinkHeader">BAR MENU</h1>
                 <ExpandableMenu
                     category="Whiskeys"
                     drinks={whiskeys}
