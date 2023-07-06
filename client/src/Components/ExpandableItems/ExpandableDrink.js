@@ -15,7 +15,8 @@ export const ExpandableMenu = ({ category, drinks, isExpanded, onClick }) => {
   return (
     <div className='container'>
       <button className='categoryButton' onClick={onClick}>{category}</button>
-      <div className={`expandable-menu ${isExpanded ? 'expanded' : ''}`}>
+      <div className={`expandable-menu ${isExpanded ? 'expanded' : ''}`}
+        ref={menuRef}>
         {drinks.map((drink) => (
           <Card key={drink.id} name={drink.name} price={drink.price} />
         ))}

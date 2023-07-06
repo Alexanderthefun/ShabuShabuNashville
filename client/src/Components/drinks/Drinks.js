@@ -145,35 +145,25 @@ export const Drinks = () => {
             <div className="nonAlcohol">
                 <h1 className="drinkHeader">FAMILY DRINKS</h1>
                 <ExpandableMenu
-                    category="Sodas"
-                    drinks={sodas}
-                    isExpanded={expandedMenu === 'Sodas'}
-                    onClick={() => handleMenuClick('Sodas')} />
+                    category="Milk Teas"
+                    drinks={milkTeas}
+                    isExpanded={expandedMenu === 'Milk Teas'}
+                    onClick={() => handleMenuClick('Milk Teas')} />
                 <ExpandableMenu
-                    category="Hot Teas"
-                    drinks={hotTeas}
-                    isExpanded={expandedMenu === 'Hot Teas'}
-                    onClick={() => handleMenuClick('Hot Teas')} />
-                <ExpandableMenu
-                    category="Japanese Sodas"
-                    drinks={japaneseSodas}
-                    isExpanded={expandedMenu === 'Japanese Sodas'}
-                    onClick={() => handleMenuClick('Japanese Sodas')} />
-                <ExpandableMenu
-                    category="Ades"
-                    drinks={ades}
-                    isExpanded={expandedMenu === 'Ades'}
-                    onClick={() => handleMenuClick('Ades')} />
+                    category="Fruit Teas"
+                    drinks={fruitTeas}
+                    isExpanded={expandedMenu === 'Fruit Teas'}
+                    onClick={() => handleMenuClick('Fruit Teas')} />
                 <ExpandableMenu
                     category="Cheese Teas"
                     drinks={cheeseTeas}
                     isExpanded={expandedMenu === 'Cheese Teas'}
                     onClick={() => handleMenuClick('Cheese Teas')} />
                 <ExpandableMenu
-                    category="Milk Teas"
-                    drinks={milkTeas}
-                    isExpanded={expandedMenu === 'Milk Teas'}
-                    onClick={() => handleMenuClick('Milk Teas')} />
+                    category="Hot Teas"
+                    drinks={hotTeas}
+                    isExpanded={expandedMenu === 'Hot Teas'}
+                    onClick={() => handleMenuClick('Hot Teas')} />
                 <ExpandableMenu
                     category="Lattes"
                     drinks={lattes}
@@ -185,43 +175,53 @@ export const Drinks = () => {
                     isExpanded={expandedMenu === 'Smoothies'}
                     onClick={() => handleMenuClick('Smoothies')} />
                 <ExpandableMenu
-                    category="Fruit Teas"
-                    drinks={fruitTeas}
-                    isExpanded={expandedMenu === 'Fruit Teas'}
-                    onClick={() => handleMenuClick('Fruit Teas')} />
+                    category="Ades"
+                    drinks={ades}
+                    isExpanded={expandedMenu === 'Ades'}
+                    onClick={() => handleMenuClick('Ades')} />
+                <ExpandableMenu
+                    category="Japanese Sodas"
+                    drinks={japaneseSodas}
+                    isExpanded={expandedMenu === 'Japanese Sodas'}
+                    onClick={() => handleMenuClick('Japanese Sodas')} />
+                <ExpandableMenu
+                    category="Sodas"
+                    drinks={sodas}
+                    isExpanded={expandedMenu === 'Sodas'}
+                    onClick={() => handleMenuClick('Sodas')} />
             </div>
             <div className="booze">
                 <h1 className="drinkHeader">BAR MENU</h1>
                 <ExpandableMenu
-                    category="Whiskeys"
-                    drinks={whiskeys}
-                    isExpanded={expandedMenu === 'Whiskeys'}
-                    onClick={() => handleMenuClick('Whiskeys')} />
+                    category="Sake"
+                    drinks={sakes}
+                    isExpanded={expandedMenu === 'Sakes'}
+                    onClick={() => handleMenuClick('Sakes')} />
                 <ExpandableMenu
-                    category="Sojus"
+                    category="Soju"
                     drinks={sojus}
                     isExpanded={expandedMenu === 'Sojus'}
                     onClick={() => handleMenuClick('Sojus')} />
+                <ExpandableMenu
+                    category="Japanese Whiskey"
+                    drinks={whiskeys}
+                    isExpanded={expandedMenu === 'Whiskeys'}
+                    onClick={() => handleMenuClick('Whiskeys')} />
+                    <ExpandableMenu
+                    category="Beer"
+                    drinks={beers}
+                    isExpanded={expandedMenu === 'Beers'}
+                    onClick={() => handleMenuClick('Beers')} />
+                <ExpandableMenu
+                    category="Wine"
+                    drinks={wines}
+                    isExpanded={expandedMenu === 'Wines'}
+                    onClick={() => handleMenuClick('Wines')} />
                 <ExpandableMenu
                     category="Cocktails"
                     drinks={cocktails}
                     isExpanded={expandedMenu === 'Cocktails'}
                     onClick={() => handleMenuClick('Cocktails')} />
-                <ExpandableMenu
-                    category="Wines"
-                    drinks={wines}
-                    isExpanded={expandedMenu === 'Wines'}
-                    onClick={() => handleMenuClick('Wines')} />
-                <ExpandableMenu
-                    category="Sakes"
-                    drinks={sakes}
-                    isExpanded={expandedMenu === 'Sakes'}
-                    onClick={() => handleMenuClick('Sakes')} />
-                <ExpandableMenu
-                    category="Beers"
-                    drinks={beers}
-                    isExpanded={expandedMenu === 'Beers'}
-                    onClick={() => handleMenuClick('Beers')} />
             </div>
         </div>
     );
