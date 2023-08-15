@@ -7,20 +7,24 @@ export default function NavBar() {
         <div className="navContainer">
             <nav className="navbar">
                 <>
-                    <RRNavLink className="nav-link" to="/broths">
-                        Broths 
+                    <RRNavLink className="nav-link" to="/">
+                        Home
                     </RRNavLink>
-                    <RRNavLink className="nav-link" to="/drinks">
-                        Drinks 
-                    </RRNavLink>
+                    <RRNavLink className="nav-link">|</RRNavLink>
                     <RRNavLink className="nav-link" to="/about">
-                        About 
+                        About
+                    </RRNavLink>
+                    <RRNavLink className="nav-link">|</RRNavLink>
+                    <RRNavLink className="nav-link" to="/broths">
+                        Broths
+                    </RRNavLink>
+                    <RRNavLink className="nav-link">|</RRNavLink>
+                    <RRNavLink className="nav-link" to="/drinks">
+                        Drinks
                     </RRNavLink>
                 </>
 
-                <RRNavLink className="nav-link" to="/">
-                    Home
-                </RRNavLink>
+
             </nav>
         </div>
     )
