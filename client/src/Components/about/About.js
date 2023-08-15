@@ -19,12 +19,12 @@ export const About = () => {
             </div>
             <div className="reservations">
                 <h2>Reservations</h2>
-                <p>We will take reservations for parties of 6 or more. Otherwise it's first come, first serve. <br/>
-                if your party is larger than 8 we kindly ask that you call at least 24 hours in advance to <br/> ensure we can accommodate your party.</p>
-                <p>Parties of 6+ include an 18% gratuity (before tax) on the check at the end of the meal.</p>
-                <p>--- Because of limited space, we cannot seat you until your entire party has arrived. <br/>
-                reservations can be made by calling 615-655-8888 .</p>
-                <p>Shabu Shabu is an all-you-can eat style restaurant. Guests are limited to a 2 hour maximum <br/>dining experience which begins when the first guest is sat at the table.</p>
+                <li>We will take reservations for parties of 6 or more. Otherwise it's first come, first serve.
+                if your party is larger than 8 we kindly ask that you call at least 24 hours in advance to ensure we can accommodate your party.</li>
+                <li>Parties of 6+ include an 18% gratuity (before tax) on the check at the end of the meal. The option to add an additional tip will be provided.</li>
+                <li>Because of limited space, we cannot seat you until your entire party has arrived.
+                reservations can be made by calling 615-655-8888 .</li>
+                <li>Shabu Shabu is an all-you-can eat style restaurant. To be fair to all patrons, we ask our guests to refrain from exceeding our 2 hour dining limit, which begins when the first guest is sat at the table regardless of wether or not the rest of their party has arrived..</li>
             </div>
             <div>
 

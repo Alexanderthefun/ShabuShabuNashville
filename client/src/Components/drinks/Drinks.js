@@ -1,9 +1,9 @@
 import React from "react";
 import Card from './DrinkCard';
 import { useEffect, useState } from "react";
-import { getAllDrinks, getDrinkById } from "../../Modules/DrinkManager";
 import { ExpandableMenu } from "../ExpandableItems/ExpandableDrink.js";
 import './Drinks.css'
+import { getDrinks } from "../../Modules/Database";
 
 export const Drinks = () => {
     const [drinks, setDrinks] = useState([]);
@@ -27,17 +27,27 @@ export const Drinks = () => {
     const [expandedMenu, setExpandedMenu] = useState(null);
 
 
+
     useEffect(() => {
-        getAllDrinks().then(data => {
-            console.log(data);
-            if (data !== null) {
-                setDrinks(data);
-            } else {
-                console.log('Somethings wrong yo.')
+        const fetchDrinks = async () => {
+            try {
+                const fetchedDrinks = await getDrinks();
+                setDrinks(fetchedDrinks);
+            } catch (error) {
+                console.error('Error fetching drinks:', error);
             }
-        })
+        };
+
+        fetchDrinks();
     }, []);
 
+
+    const newDrinkList = [];
+    useEffect(() => {
+        for (const drink of drinks) {
+            newDrinkList.push(drink);
+        }
+    }, [drinks])
 
     useEffect(() => {
         const booze = [];
@@ -207,7 +217,7 @@ export const Drinks = () => {
                     drinks={whiskeys}
                     isExpanded={expandedMenu === 'Whiskeys'}
                     onClick={() => handleMenuClick('Whiskeys')} />
-                    <ExpandableMenu
+                <ExpandableMenu
                     category="Beer"
                     drinks={beers}
                     isExpanded={expandedMenu === 'Beers'}
@@ -223,6 +233,25 @@ export const Drinks = () => {
                     isExpanded={expandedMenu === 'Cocktails'}
                     onClick={() => handleMenuClick('Cocktails')} />
             </div>
+            <div className="addOns">
+                <p>The following add-ons may be added to any non-alcoholic drinks:</p>
+                <li>Brown-Sugar Boba: $0.50</li>
+                <li>Rainbow Jelly: $0.50</li>
+                <li>Cream Cap: $0.50</li>
+                <li>Cheese Cream Cap: $0.75</li>
+            </div>
         </div>
     );
 }
+
+// useEffect(() => {
+//     getAllDrinks().then(data => {
+//         console.log(data);
+//         if (data !== null) {
+//             setDrinks(data);
+//             console.log(drinks);
+//         } else {
+//             console.log('Somethings wrong yo.')
+//         }
+//     })
+// }, []);
